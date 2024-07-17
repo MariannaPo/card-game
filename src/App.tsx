@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Card } from './Card';
@@ -20,10 +20,22 @@ function App() {
     {id: 6, color: 'black'},
   ];
 
+  const [color, setColor] = useState('white')
+  
+      
+    const clickCardHandler=(id: number)=>{
+      const card = cards.find(card => card.id === id);
+      if(card){
+        setColor(card.color)
+        console.log(`Изменяем цвет элемента с id ${id} на цвет: ${card.color}`);
+      }
+      }
+    
   return (
     <div>
         <Card
         cards={cards}
+        clickCardHandler={clickCardHandler}
         />
     </div>
   )
