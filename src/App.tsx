@@ -20,21 +20,11 @@ function App() {
     {id: 6, color: 'black'},
   ];
 
-  // const [color, setColor] = useState()
-  
-      
-  //   const clickCardHandler=(id: number)=>{
-  //     const card = cards.find(cardi => cardi.id === id);
-  //     if(card){
-  //       setColor(card.color)
-  //     }
-  //     }
     
   return (
     <div>
         <Card
         cards={cards}
-        // clickCardHandler={clickCardHandler}
         />
     </div>
   )

@@ -1,8 +1,8 @@
-import { type } from "os"
+
 import { CardType } from "./App"
 import s from './card.style.module.css'
-import { useEffect, useState } from "react"
-import { idText } from "typescript"
+import {useState } from "react"
+
 
 
 export type CardPropsType={
@@ -12,8 +12,6 @@ export type CardPropsType={
 export const Card=({cards}: CardPropsType)=>{
 
     const [selectedCardsIds, setSelectedCardsIds] = useState<number[]>([])
-    const [guessesCards, setGuessesCards] = useState<number[]>([])
-
 
     const clickCardHandler = (id: number) => {
         if (selectedCardsIds.includes(id)) {
@@ -22,28 +20,14 @@ export const Card=({cards}: CardPropsType)=>{
         } else {
             setSelectedCardsIds([...selectedCardsIds, id]);
         }
-        
-        // const winCard=()=>{
-        //     if(selectedCardsIds)
-        
-        //         console.log(id)
-        //     }
-        //     winCard()
     };
-
-//    const winCard=(id: number)=>{
-//     if(cards.id === id)
-//         console.log(id)
-//     }
-
 
     const colorChange=(a: any, id: number, color: string)=>{
     if(selectedCardsIds.includes(a.id)){
         return  a.color 
     }
     }
-
-
+  
     return(
         <div className={s.item}>
             {cards.map((card) => ( 
