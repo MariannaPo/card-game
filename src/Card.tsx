@@ -15,11 +15,7 @@ export const Card=({cards}: CardPropsType)=>{
     const [selectedCardId, setSelectedCardId] = useState<number | null>(null);
   
     const clickCardHandler=(id: number)=>{
-        const card = cards.find(card => card.id === id);
-        if(card){
-          setColor(color)
           setSelectedCardId(id)
-        }
         }
 
     return(
