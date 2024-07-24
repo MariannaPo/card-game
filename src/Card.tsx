@@ -1,7 +1,7 @@
 
 import { CardType } from "./App"
 import s from './card.style.module.css'
-import {useState } from "react"
+import {useEffect, useState } from "react"
 
 
 
@@ -12,6 +12,7 @@ export type CardPropsType={
 export const Card=({cards}: CardPropsType)=>{
 
     const [selectedCardsIds, setSelectedCardsIds] = useState<number[]>([])
+    const [colorCard, setColorCard] = useState<any>()
 
     const clickCardHandler = (id: number) => {
         if (selectedCardsIds.includes(id)) {
@@ -22,17 +23,18 @@ export const Card=({cards}: CardPropsType)=>{
         }
     };
 
-    const colorChange=(a: any, id: number, color: string)=>{
+    const colorChange=(a: any)=>{
     if(selectedCardsIds.includes(a.id)){
-        return  a.color 
+        return  a.color
     }
     }
+
   
     return(
         <div className={s.item}>
             {cards.map((card) => ( 
                 <div key={card.id} 
-                style={{ backgroundColor: colorChange(card, card.id, card.color)}}
+                style={{ backgroundColor: colorChange(card)}}
                 className={s.cardDiv} 
                 onClick={()=>clickCardHandler(card.id)}>
                     {card.color}
